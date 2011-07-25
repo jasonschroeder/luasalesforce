@@ -1,0 +1,27 @@
+luasalesforce
+=========
+
+`luasalesforce` is a Lua module for the Salesforce REST API. It authenticates using OAuth 2, and includes support for creating and updating records.
+
+## License ##
+`luasalesforce` is licensed under the MIT License. See `LICENSE.txt`.
+
+
+## Requirements ##
++  compat-5.1 if using Lua 5.0
++ luasocket
++ ltn12
++ ssl (luasec)
+
+## Examples ##
+
+See `examples\test.lua`
+
+
+
+
+
+
+----------
+
+Patches welcome!
