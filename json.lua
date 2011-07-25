@@ -318,7 +318,7 @@ do
 		:link(tt_boolean)            :to "tf" 
 		:link(tt_null)               :to "n" 
 		:link(tt_ignore)             :to " \t\r\n"
-	
+		:link(true)                  :to "]"
 	-- valid number tokens
 	init_token_table (tt_numeric) "number"
 		:link(tt_ignore)             :to "0123456789.-Ee"
@@ -470,8 +470,12 @@ do
 			i = i or 1
 			-- loop until ...
 			while true do
-				o[i] = read_value(next_token(tt_array_seperator),tt_array_seperator)
-				local t = next_token(tt_array_value)
+				local t = next_token(tt_array_seperator)
+				if t == true then
+					return o
+				end
+				o[i] = read_value(t,tt_array_seperator)
+				t = next_token(tt_array_value)
 				if t == tt_comment_start then
 					t = read_comment(tt_array_value)
 				end
